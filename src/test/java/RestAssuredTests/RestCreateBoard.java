@@ -13,6 +13,7 @@ public class RestCreateBoard extends RestAssuredApi {
         String name = " Create Board Test!!!";
         Response createBoard = RestAssuredTasks.Post(name);
         String boardName = createBoard.jsonPath().get("name").toString();
+        String boardID = createBoard.jsonPath().get("id").toString();
 
         Assert.assertEquals(createBoard.getStatusCode(),200);
         Assert.assertEquals(name,boardName);

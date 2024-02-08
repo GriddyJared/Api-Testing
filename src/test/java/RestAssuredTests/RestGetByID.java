@@ -14,7 +14,8 @@ public class RestGetByID extends RestAssuredApi {
         Response getBoard = RestAssuredTasks.Post(name);
         String boardID =  getBoard.jsonPath().get("id").toString();
 
-        Assert.assertEquals(getBoard.getStatusCode(),200);
+        Response getBoardResponse = RestAssuredTasks.GET(boardID);
+        Assert.assertEquals(200,getBoardResponse.getStatusCode());
 
     }
 }
